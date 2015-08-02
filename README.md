@@ -28,7 +28,7 @@ Load the task with
 grunt.loadNpmTasks('grunt-vid2pict');
 ```
 
-## FFMEG
+## FFMPEG
 
 This module use ffmpeg under the hood.
 
