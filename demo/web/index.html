@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <style>
+        @import "test-vid/animation.css";
+        #player{
+            position: absolute;
+            margin-left: 2%;
+            margin-top: 2%;
+            width: 640px;
+            height: 360px;
+            overflow: hidden;
+        }
+        #player > div{
+            position: absolute;
+            width: 640px;
+            height: 360px;
+            background-position: top left;
+            background-repeat: no-repeat;
+        }
+        @keyframes moveleft {
+            0%   { left: 0%; }
+            25%   { left: 5%; }
+            50%   { left: 20%; }
+            75%   { left: 5%; }
+            100%   { left: 0%; }
+        }
+        @keyframes movetop {
+            0%   { top: 0%; }
+            25%   { top: 5%; }
+            50%   { top: 20%; }
+            75%   { top: 5%; }
+            100%   { top: 0%; }
+        }
+        @keyframes opacity {
+            0%   { opacity: 1; }
+            25%   { opacity: .5; }
+            50%   { opacity: .8; }
+            75%   { opacity: .5; }
+            100%   { opacity: 1; }
+        }
+        .moveleft{
+            animation: moveleft 2s infinite;
+        }
+        .movetop{
+            animation: movetop 5s infinite;
+        }
+        .movetopleft{
+            animation:
+            opacity 4s infinite
+            ,moveleft 2s infinite
+            ,movetop 5s infinite
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="player"></div>
+    </div>
+    <script src="components/jquery/dist/jquery.min.js"></script>
+    <script src="pictplayer.js"></script>
+    <script src="test-vid/animation.js"></script>
+    <script>
+        var el = $('#player')
+        var player = new PictPlayer(el[0], window.playerVideo['no-name'])
+        player
+                .play()
+                .loop(true)
+//                .loop(true, function (){
+//                    player.readBackward(player.readMode==='forward').moveToNextFrame()
+//                })
+
+        el.addClass('movetopleft')
+    </script>
+</body>
+
+</html>

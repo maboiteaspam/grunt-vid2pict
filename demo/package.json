@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "name": "demo-grunt-vid2pict",
+  "version": "0.0.1",
+  "description": "demo",
+  "main": "Gruntfile.js",
+  "scripts": {},
+  "bin": {},
+  "keywords": [
+    "demo",
+    "grunt-vid2pict"
+  ],
+  "author": "maboiteaspam",
+  "license": "WTF",
+  "homepage": "https://github.com/maboiteaspam/img-video-producer#readme",
+  "repository": {
+    "url": "https://github.com/maboiteaspam/img-video-producer"
+  },
+  "bugs": {
+    "url": "https://github.com/maboiteaspam/img-video-producer/issues"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-request-progress": "0.0.3",
+    "grunt-vid2pict": "0.0.1"
+  },
+  "devDependencies": {}
+}

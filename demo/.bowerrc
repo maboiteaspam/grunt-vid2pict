@@ -1,0 +1,5 @@
+{
+  "directory": "web/components/",
+  "analytics": true,
+  "timeout": 120000
+}

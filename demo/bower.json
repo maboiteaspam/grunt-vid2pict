@@ -1,11 +1,12 @@
 {
-  "name": "grunt-vid2pict",
+  "private": true,
+  "name": "demo-grunt-vid2pict",
   "version": "0.0.1",
   "homepage": "https://github.com/maboiteaspam/grunt-vid2pict",
   "authors": [
     "clement <maboiteaspam@wanadoo.fr>"
   ],
-  "description": "Player for grunt-vid2pict module",
+  "description": "Demo for grunt-vid2pict module",
   "main": "pictplayer.js",
   "keywords": [
     "player",
@@ -16,12 +17,11 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "demo",
     "test",
-    "tests",
-    "tasks"
+    "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "grunt-vid2pict": "~0.0.2"
   }
 }
