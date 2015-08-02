@@ -1,14 +1,17 @@
 {
   "name": "grunt-vid2pict",
   "version": "0.0.1",
-  "description": "to write",
-  "main": "index.js",
+  "description": "Transforms a video into a picture based web animation",
+  "files": [
+    "tasks"
+  ],
   "scripts": {},
   "bin": {},
   "keywords": [
-    "To",
-    "be",
-    "done"
+    "ffmpeg",
+    "video",
+    "transforms",
+    "picture"
   ],
   "author": "maboiteaspam",
   "license": "WTF",
@@ -20,9 +23,5 @@
     "url": "https://github.com/maboiteaspam/grunt-vid2pict/issues"
   },
   "dependencies": {
-    "commander": "^2.8.1"
-  },
-  "devDependencies": {
-    "should": "^7.0.2"
   }
 }

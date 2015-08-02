@@ -1,18 +1,68 @@
 # grunt-vid2pict
-to write
+
+Transforms a video into a picture based web animation.
+
+It exports the video to `png` or `jpeg` using `ffmpeg`.
+
+Then it generates a `css` file, which describe frame sequencing.
+
+It also generates a `javascript` file containing useful information 
+to play the produced videos.
+
+I need this kind of things to work with transparency and so on.
 
 ## Installation
+
+If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the 
+[Getting Started](http://gruntjs.com/getting-started) guide.
+
 Run the following commands to download and install the application:
 
 ```sh
-$  clone https://github.com/maboiteaspam/grunt-vid2pict grunt-vid2pict
-$ cd grunt-vid2pict
-$ npm install
+npm i grunt-vid2pict --save-dev
 ```
+
+Load the task with
+
+```js
+grunt.loadNpmTasks('grunt-vid2pict');
+```
+
+## FFMEG
+
+This module use ffmpeg under the hood.
+
+It lookup for 
+- `options.ffmpeg` inlined grunt task option
+- `process.ENV['FFMPEG']` a predefined variable
+- `ffmpeg` in the PATH
 
 ## Documentation
 
+Configure a task such
 
+```js
+
+grunt.initConfig({
+  vid2pict: {
+    'test': {
+      'options': {
+        src: 'test/fixtures/big_buck_bunny.webm',
+        dst: 'test/test-vid/img%03d.jpg', // png|jpeg
+        //compression_level: 0, // png 100-0
+        quality: 12, // jpeg 1-31
+        ss: 0, // start time sequence
+        t: 60, // duration
+        fps: 12 // frames per second to keep
+      }
+    }
+  }
+})
+
+grunt.registerTask('default', [
+  'vid2pict:test'
+]);
+```
 
 
 ## How to contribute
