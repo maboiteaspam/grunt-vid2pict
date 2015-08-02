@@ -1,3 +1,9 @@
+:package: patch v0.0.2
+
+```
+Bower support and demo.
+```
+
 :package: same v0.0.1
 
 ```

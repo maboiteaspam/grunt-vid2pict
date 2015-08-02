@@ -1,6 +1,6 @@
 {
   "name": "grunt-vid2pict",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Transforms a video into a picture based web animation",
   "files": [
     "tasks"
@@ -22,6 +22,5 @@
   "bugs": {
     "url": "https://github.com/maboiteaspam/grunt-vid2pict/issues"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

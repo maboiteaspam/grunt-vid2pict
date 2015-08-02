@@ -7,3 +7,7 @@ demo/fixtures
 demo/web/components
 demo/web/test-vid
 
+
+.local.json
+
+.idea/
