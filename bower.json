@@ -1,0 +1,26 @@
+{
+  "name": "grunt-vid2pict",
+  "version": "0.0.1",
+  "homepage": "https://github.com/maboiteaspam/grunt-vid2pict",
+  "authors": [
+    "clement <maboiteaspam@wanadoo.fr>"
+  ],
+  "description": "Player for grunt-vid2pict module",
+  "main": "pictplayer.js",
+  "keywords": [
+    "player",
+    "grunt-vid2pict"
+  ],
+  "license": "WTF",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "tasks"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
