@@ -1,3 +1,9 @@
+:package: patch v0.0.3
+
+```
+Fix bower support.
+```
+
 :package: patch v0.0.2
 
 ```
