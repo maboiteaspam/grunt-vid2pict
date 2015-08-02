@@ -1,10 +1,12 @@
 # demo grunt-vid2pict
 
-Demo to shows how thqt works.
+Demo to shows how that works.
 
 ## Running
 
 ```sh
+git clone https://github.com/maboiteaspam/grunt-vid2pict.git
+cd grunt-vid2pict/demo
 npm i -g nws
 npm i 
 bower i

@@ -11,6 +11,8 @@ to play the produced videos.
 
 I need this kind of things to work with transparency and so on.
 
+See the [Demo](demo/)
+
 ## Installation
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the 
