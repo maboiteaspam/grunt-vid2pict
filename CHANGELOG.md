@@ -1,3 +1,9 @@
+:package: patch v0.0.4
+
+```
+improver bower support in the demo.
+```
+
 :package: patch v0.0.3
 
 ```

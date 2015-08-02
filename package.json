@@ -1,6 +1,6 @@
 {
   "name": "grunt-vid2pict",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Transforms a video into a picture based web animation",
   "files": [
     "tasks"
