@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "demo-grunt-vid2pict",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "demo",
   "main": "Gruntfile.js",
   "scripts": {},
