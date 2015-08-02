@@ -1,7 +1,8 @@
 var PictPlayer = function (el, opt) {
 
   this.buffer = []
-  this.bufferLength = 1
+  this.bufferLength = 1 // you can increase that if your cpu allows it
+  // and if your pictures and framerates requires that
   this.el = el
   this.opt = opt || {}
 
@@ -40,7 +41,7 @@ var PictPlayer = function (el, opt) {
       if (that.isPlaying) {
         if (that.previousFrame!==null)
           that.buffer.push(that.previousFrame)
-          that.buffer.push(that.frame)
+        that.buffer.push(that.frame)
         that.previousFrame = that.frame
         if (that.buffer.length>that.bufferLength)
           that.buffer.splice(0, that.buffer.length-that.bufferLength)
