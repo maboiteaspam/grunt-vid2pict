@@ -22,6 +22,6 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4",
-    "grunt-vid2pict": "maboiteaspam/grunt-vid2pict#~0.0.3"
+    "grunt-vid2pict": "https://github.com/maboiteaspam/grunt-vid2pict.git#~0.0.5"
   }
 }

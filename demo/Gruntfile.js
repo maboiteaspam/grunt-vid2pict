@@ -14,7 +14,8 @@ grunt.initConfig({
         quality: 12,
         ss: 0,
         t: 60,
-        fps: 12
+        fps: 12,
+        baseUrl: '/test-vid/'
       }
     }
   },
