@@ -1,3 +1,13 @@
+:package: patch v0.0.5
+
+```
+- remove css support for pictPlqyer, use img nodes is much more reliable.
+- add startFrame / endFrame options to grunt task  for a better control animation start/stops.
+- add baseUrl options to control location of the pictures in the JS animation file exported.
+- fixed the task options reading.
+- added frames list to JS animation file
+```
+
 :package: patch v0.0.4
 
 ```
