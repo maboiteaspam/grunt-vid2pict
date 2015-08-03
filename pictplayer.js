@@ -1,55 +1,30 @@
 var PictPlayer = function (el, opt) {
 
-  this.buffer = []
-  this.bufferLength = 1 // you can increase that if your cpu allows it
   // and if your pictures and framerates requires that
   this.el = el
   this.opt = opt || {}
 
-  this.front = document.createElement('div')
-  this.bufferEl = []
-  for(var i=0;i<this.bufferLength;i++) {
-    this.buffer.push('')
-    this.bufferEl.push(document.createElement('div'))
-    this.el.appendChild(this.bufferEl[i])
-  }
+  this.front = document.createElement('img')
   this.el.appendChild(this.front)
 
   this.onLoop = null
   this.isPlaying = false
-  this.previousFrame = null
   this.frame = 0
 
   this.play = function () {
 
     var that = this
-    var name = this.opt.name
     var speed = this.opt.speed
+    var frames = this.opt.frames
 
-    var pFrame = this.previousFrame
+    this.front.setAttribute('src', frames[this.frame])
 
-    var css = this.front.getAttribute('class') || ''
-    if (pFrame!==null) css = css.replace(' frame'+pFrame+name, '')
-    css += ' frame'+this.frame+name
-    this.front.setAttribute('class', css)
-
-    for(var i=0;i<this.bufferLength;i++) {
-      that.bufferEl[i].setAttribute('class', ' frame'+this.buffer[i]+name)
-    }
     this.isPlaying = true
     setTimeout(function(){
       if (that.isPlaying) {
-        if (that.previousFrame!==null)
-          that.buffer.push(that.previousFrame)
-        that.buffer.push(that.frame)
-        that.previousFrame = that.frame
-        if (that.buffer.length>that.bufferLength)
-          that.buffer.splice(0, that.buffer.length-that.bufferLength)
         that.moveToNextFrame()
-        if (that.isPlaying) {
-          that.play()
+        if (that.isPlaying)  that.play()
 
-        }
       }
     }, 40 / speed)
     return this

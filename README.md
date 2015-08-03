@@ -32,7 +32,7 @@ grunt.loadNpmTasks('grunt-vid2pict');
 
 ## FFMPEG
 
-This module use ffmpeg under the hood.
+This module use `ffmpeg` under the hood.
 
 It lookup for 
 - `options.ffmpeg` inlined grunt task option
@@ -55,7 +55,10 @@ grunt.initConfig({
         quality: 12, // jpeg 1-31
         ss: 0, // start time sequence
         t: 60, // duration
-        fps: 12 // frames per second to keep
+        fps: 12, // frames per second to keep
+        baseUrl: '/www/path',
+        startFrame: 0, // starting frame index of the animation
+        endFrame: null // ending frame index of the animation
       }
     }
   }
