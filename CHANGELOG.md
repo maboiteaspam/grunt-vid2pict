@@ -1,3 +1,10 @@
+:package: patch v0.0.6
+
+```
+- Updated picture player to improve smoothiness
+- Code linting.
+```
+
 :package: patch v0.0.5
 
 ```
