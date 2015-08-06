@@ -72,8 +72,8 @@ module.exports = function(grunt) {
             length: framesLength,
             frames: frames
           }
-          var js = 'window.playerVideo = window.playerVideo || {}, ' +
-            'window.playerVideo[\''+name+'\'] = ' + JSON.stringify(playerOpts, null, 4)
+          var js = 'window.playerVideo = window.playerVideo || {};\n' +
+            'window.playerVideo[\''+name+'\'] = ' + JSON.stringify(playerOpts, null, 4)+';\n'
           grunt.file.write(jsFile, js)
           done()
         })
