@@ -4,72 +4,99 @@ var PictPlayer = function (el, opt) {
   this.el = el
   this.opt = opt || {}
 
-  this.front = document.createElement('img')
-  this.el.appendChild(this.front)
+  var that = this
+  this.opt.frames.forEach(function(e, i) {
+    var d = document.createElement('img')
+    d.setAttribute('src', e)
+    d.setAttribute('style', 'z-index:0;opacity:0;')
+    d.setAttribute('frameindex', i)
+    that.el.appendChild(d)
+  })
 
-  this.onLoop = null
   this.isPlaying = false
   this.frame = 0
+  this.prevFrame = -1
 
   this.play = function () {
 
+    this.isPlaying = true
+
     var that = this
     var speed = this.opt.speed
-    var frames = this.opt.frames
 
-    this.front.setAttribute('src', frames[this.frame])
+    if (this.el.childNodes[this.frame]) {
+      this.el.childNodes[this.frame].setAttribute('style', 'z-index:1;opacity:1;')
+    }
 
-    this.isPlaying = true
-    setTimeout(function(){
-      if (that.isPlaying) {
-        that.moveToNextFrame()
-        if (that.isPlaying)  that.play()
-
+    if (this.prevFrame>-1) {
+      if (this.el.childNodes[this.prevFrame]) {
+        this.el.childNodes[this.prevFrame].setAttribute('style', 'z-index:0;opacity:0;')
       }
-    }, 40 / speed)
+      this.prevFrame = -1
+    }
+
+    this.prevFrame = parseInt(this.frame);
+
+    if (that.isEnded()) {
+      if (that.opt.isLooping && that.opt.onLoop) that.opt.onLoop(this)
+      else that.isPlaying = false
+    } else {
+      that.frame = that.getNextFrame()
+    }
+
+    if (that.isPlaying){
+      setTimeout(function(){
+        if (that.isPlaying){
+          that.play()
+        }
+      }, 40 / speed)
+    }
+
     return this
   }
 
-  this.moveToNextFrame = function () {
+  this.isEnded = function () {
 
     var curFrame = this.frame
     var isFinish = false
     var length = this.opt.length
     var readMode = this.opt.readMode
+
+    if (readMode==='forward') {
+      isFinish = curFrame>=length-1
+    } else {
+      isFinish = curFrame<=0
+    }
+
+    return isFinish
+  }
+
+  this.getNextFrame = function () {
+
+    var curFrame = 0+this.frame
+    var length = this.opt.length
     var isLooping = this.opt.isLooping
-    var onLoop = this.opt.onLoop
+    var readMode = this.opt.readMode
 
-    if (readMode==='forward') {
-      isFinish = curFrame+1>=length
-    } else {
-      isFinish = curFrame-1<0
-    }
+    var isFinish = this.isEnded()
 
-    if (isFinish && isLooping && onLoop) onLoop(this)
-
-    if (readMode==='forward') {
-      if (isFinish) {
-        if (isLooping) {
-          this.frame = 0
-        } else {
-          this.stop()
-        }
+    if (!isFinish) {
+      if (readMode==='forward') {
+        curFrame++
       } else {
-        this.frame++;
+        curFrame--
       }
     } else {
-      if (isFinish) {
-        if (isLooping) {
-          this.frame = length-1
+      if (isLooping) {
+        if (readMode==='forward') {
+          curFrame=0
         } else {
-          this.stop()
+          curFrame=length-1
         }
-      } else {
-        this.frame--;
       }
     }
 
-    return this
+    return curFrame
   }
 
   this.goToFrame = function (n) {
@@ -81,7 +108,7 @@ var PictPlayer = function (el, opt) {
     var length = this.opt.length
     var readMode = this.opt.readMode
     if (readMode==='forward') {
-      this.goToFrame(length)
+      this.goToFrame(length-1)
     } else {
       this.goToFrame(0)
     }
@@ -94,7 +121,7 @@ var PictPlayer = function (el, opt) {
     if (readMode==='forward') {
       this.goToFrame(0)
     } else {
-      this.goToFrame(length)
+      this.goToFrame(length-1)
     }
     return this
   }
