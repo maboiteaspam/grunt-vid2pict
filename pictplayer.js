@@ -72,6 +72,12 @@ var PictPlayer = function (el, opt) {
     return isFinish;
   };
 
+  // deprecated.
+  this.moveToNextFrame = function () {
+    this.frame = this.getNextFrame()
+    return this
+  }
+
   this.getNextFrame = function () {
 
     var curFrame = 0+this.frame;
